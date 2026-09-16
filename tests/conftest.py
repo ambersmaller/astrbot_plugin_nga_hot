@@ -12,6 +12,12 @@ import pytest
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PLUGIN_ROOT.parent))
 
+# 兼容两种目录布局：插件目录名固定为 astrbot_plugin_nga_hot 时无需处理；
+# 作为 Git 仓库根目录（目录名任意）克隆时，将实际包名别名到 astrbot_plugin_nga_hot
+if PLUGIN_ROOT.name != "astrbot_plugin_nga_hot":
+    _pkg = importlib.import_module(PLUGIN_ROOT.name)
+    sys.modules.setdefault("astrbot_plugin_nga_hot", _pkg)
+
 
 def _build_astrbot_stubs() -> dict:
     """构造最小可用的 astrbot 模块桩集合。"""
@@ -172,6 +178,10 @@ def astrbot_env(monkeypatch):
             "astrbot_plugin_nga_hot."
         ):
             monkeypatch.delitem(sys.modules, mod_name, raising=False)
+
+    if PLUGIN_ROOT.name != "astrbot_plugin_nga_hot":
+        # 仓库根目录布局：上面的清理可能移除了别名，重新建立后再导入
+        sys.modules.setdefault("astrbot_plugin_nga_hot", importlib.import_module(PLUGIN_ROOT.name))
 
     main_mod = importlib.import_module("astrbot_plugin_nga_hot.main")
     importlib.reload(main_mod)
