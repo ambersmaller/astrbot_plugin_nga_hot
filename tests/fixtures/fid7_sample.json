@@ -1,0 +1,54 @@
+{
+  "data": {
+    "__T": {
+      "0": {
+        "tid": 47344551,
+        "subject": "[战报帖] 乌拉特克的诅咒：烈毒之渊…名人堂前十已满…",
+        "postdate": 1786338953,
+        "replies": 4426,
+        "author": "皮纳特丶"
+      },
+      "1": {
+        "tid": 47344777,
+        "subject": "这赛季集合石大米高层尝试了查分组人",
+        "postdate": 1786402800,
+        "replies": 45,
+        "author": "甲"
+      },
+      "2": {
+        "tid": 47344888,
+        "subject": "攻略搬运 https://example.com/guide 快来围观",
+        "postdate": 1786401000,
+        "replies": 45,
+        "author": "乙"
+      },
+      "3": {
+        "tid": 47344999,
+        "subject": "他来了他来了，他带着三个球来了",
+        "postdate": 1786400000,
+        "replies": 17,
+        "author": "丙"
+      },
+      "4": {
+        "tid": 47345000,
+        "subject": "一个标题特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别长的帖子标题需要被截断处理",
+        "postdate": 1786390000,
+        "replies": 17,
+        "author": "丁"
+      },
+      "5": {
+        "tid": 47345001,
+        "subject": "字段残缺的帖子应该被跳过",
+        "postdate": 1786380000,
+        "author": "戊"
+      },
+      "6": {
+        "tid": "not_a_number",
+        "subject": "tid 非法也应跳过",
+        "postdate": 1786380000,
+        "replies": 3,
+        "author": "己"
+      }
+    }
+  }
+}
