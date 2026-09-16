@@ -1,0 +1,81 @@
+{
+  "boards": {
+    "type": "template_list",
+    "description": "NGA 版面列表（每条版面绑定一个唤起指令）",
+    "hint": "修改本列表（增删版面或指令）后，需在插件卡片上「重载插件」生效；指令触发时的 hours/top_n 等参数实时读取最新配置。",
+    "templates": {
+      "board": {
+        "name": "NGA 版面",
+        "display_item": "command",
+        "items": {
+          "board_url": {
+            "description": "版面地址",
+            "type": "string",
+            "hint": "如 https://bbs.nga.cn/thread.php?fid=7"
+          },
+          "board_name": {
+            "description": "版面显示名（可选）",
+            "type": "string",
+            "default": "",
+            "hint": "用于榜单标题展示，留空则显示 fid=数字"
+          },
+          "command": {
+            "description": "唤起指令名",
+            "type": "string",
+            "hint": "不含唤醒前缀 /；仅中文/字母/数字/下划线，1-20 字符，不得含空格；修改后需重载插件"
+          },
+          "hours": {
+            "description": "最近 N 小时时间窗口",
+            "type": "int",
+            "default": 24,
+            "hint": "0 表示不过滤时间"
+          },
+          "top_n": {
+            "description": "评论数 Top N 截取数",
+            "type": "int",
+            "default": 5,
+            "hint": "0 表示返回全部"
+          }
+        }
+      }
+    }
+  },
+  "nga_uid": {
+    "description": "NGA Cookie：ngaPassportUid",
+    "type": "string",
+    "default": "",
+    "secret": true,
+    "hint": "登录 bbs.nga.cn 后从浏览器 Cookie 中获取；插件不会输出该值"
+  },
+  "nga_cid": {
+    "description": "NGA Cookie：ngaPassportCid",
+    "type": "string",
+    "default": "",
+    "secret": true,
+    "hint": "同上；Cookie 失效时插件会提示更新"
+  },
+  "request_timeout": {
+    "description": "请求 NGA 超时时间（秒）",
+    "type": "int",
+    "default": 10
+  },
+  "send_mode": {
+    "description": "发送方式",
+    "type": "string",
+    "default": "auto",
+    "options": ["auto", "markdown", "text"],
+    "hint": "auto：优先 Markdown，失败自动降级纯文本；markdown：强制 Markdown；text：纯文本"
+  },
+  "cache_ttl": {
+    "description": "同版面结果缓存秒数",
+    "type": "int",
+    "default": 60,
+    "hint": "防频控、防重复刷接口；0 表示不缓存"
+  },
+  "max_title_len": {
+    "description": "标题最大长度",
+    "type": "int",
+    "default": 40,
+    "hint": "超出截断并加 …"
+  }
+}

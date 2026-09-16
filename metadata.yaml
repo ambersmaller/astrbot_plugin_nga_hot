@@ -1,0 +1,6 @@
+name: astrbot_plugin_nga_hot
+desc: NGA 热帖推送：在 QQ 官方机器人群聊中响应指令，拉取指定 NGA 版面热帖榜（标题/时间/评论数，无链接），以 Markdown 消息回复，无需 LLM。
+version: v1.0.0
+author: ambersmaller
+repo: https://github.com/ambersmaller/astrbot_plugin_nga_hot
+astrbot_version: ">=4.10.4"
